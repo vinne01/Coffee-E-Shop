@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  body{
+    font-family: 'Baloo Bhai', cursive;
+  }
+  .card-container {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Space between cards */
+    margin-top: 50px; /* Top margin */
+    flex-wrap: wrap; /* Ensure that the cards wrap to new lines on small screens */
+  }
+
+  .card {
+    width: 18rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    margin-bottom: 20px; /* Space between the rows of cards */
+  }
+
+  .card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+  }
+
+  .card-title {
+    font-size: 1.25rem; /* Increased title size */
+    font-weight: bold;
+  }
+
+  .card-text {
+    font-size: 1rem; /* Set font size for the card text */
+  }
+  .card-img-top {
+    width: 100%; /* Ensure the image fills the width of the card */
+    height: 200px; /* Set a fixed height for the image */
+    object-fit: cover; /* Ensures the image covers the area of the image container */
+    border-top-left-radius: 10px; /* Rounded top corners */
+    border-top-right-radius: 10px; /* Rounded top corners */
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  /* Media Queries for smaller devices */
+  @media (max-width: 1200px) {
+    .card-container {
+      justify-content: space-around; /* Space out the cards more on medium screens */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card-container {
+      justify-content: center; /* Center the cards for small screens */
+    }
+    .card {
+      width: 16rem; /* Reduce the width for smaller screens */
+    }
+  }
+
+  @media (max-width: 576px) {
+    .card-container {
+      flex-direction: column; /* Stack the cards vertically */
+      align-items: center; /* Center align the cards */
+    }
+
+    .card {
+      width: 100%; /* Make the card width 100% for very small screens */
+      max-width: 300px; /* Set a max-width for cards to prevent them from being too wide */
+    }
+  }
+</style>
+<h2 class="text-center">Lists of Coffee Available in Shop</h2>
+<div class="card-container">
+ 
+  <div class="card">
+   
+    <img src="https://images.pexels.com/photos/10104662/pexels-photo-10104662.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Indian Coffee">
+    <div class="card-body">
+      <h5 class="card-title">Indian Coffee</h5>
+      <p class="card-text"> Experience the bold and aromatic flavors of Indian coffee, brewed to perfection with spices like cardamom. 
+        Enjoy the full-bodied richness of beans from Coorg.
+      </p></p>
+      <a href="{% url 'home' %}" class="btn btn-primary">Buy Now</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.pexels.com/photos/10311660/pexels-photo-10311660.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Russian Coffee">
+    <div class="card-body">
+      <h5 class="card-title">Russian Coffee</h5>
+      <p class="card-text"> Indulge in the bold, robust flavor of Russian coffee, traditionally brewed with dark roasted beans. 
+        It’s the perfect drink to warm you up, especially during cold winters.</p>
+      <a href="{% url 'home' %}" class="btn btn-primary">Buy Now</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.pexels.com/photos/29445873/pexels-photo-29445873/free-photo-of-close-up-of-coffee-cup-with-scattered-beans.png?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="American Coffee">
+    <div class="card-body">
+      <h5 class="card-title">American Coffee</h5>
+      <p class="card-text">     Enjoy the light, smooth, and refreshing taste of American coffee. Ideal for a quick pick-me-up or a relaxing coffee break, 
+        it’s a beloved classic across the U.S.</p>
+      <a href="{% url 'home'  %}" class="btn btn-primary">Buy Now</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

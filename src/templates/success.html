@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="text-center">
+
+    <img src="https://th.bing.com/th/id/OIP.jjA1VPi4IQDvYElxLB6BUAAAAA?pid=ImgDet&w=176&h=176&c=7&dpr=1.5" class="img-fluid img-responsive" style="height:400px">
+    <h2>Thanks your payment has been received !</h2>
+
+    </div>
+    <div class="container text-center mt-5">
+        <!-- Display an animated button linking to the home page -->
+        <a href="{% url 'menu' %}" class="btn btn-primary btn-lg animated pulse infinite" style="font-size: 20px, font-family: 'Baloo Bhai', cursive;">
+        Again Buy Coffee
+        </a>
+    </div>
+    <style>
+        font-family: 'Baloo Bhai', cursive;
+    </style>
+
+
+
+{% endblock%}

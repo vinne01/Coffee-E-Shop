@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+
+            <div class="text-center">
+                <img src="https://www.dragosroua.com/wp-content/uploads/2019/03/coffee-shop-1149155_1920.jpg" class="img-fluid img-responsive" style="height:400px">
+            </div>
+
+            <form method="post" id="orderForm">
+                {% csrf_token %}
+                
+                <!-- Name and Email fields first -->
+                <div class="mb-3">
+                    <label for="exampleInputName" class="form-label">Enter Name</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail" class="form-label">Enter Email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Enter Email" required>
+                </div>
+
+                <!-- Coffee Type and Quantity Fields -->
+                <div class="mb-3">
+                    <label for="coffeeType" class="form-label">Select Coffee Type</label>
+                    <select name="coffee_type" id="coffeeType" class="form-control" onchange="updatePrice()" required>
+                        <option value="indian" data-price="100">Indian Coffee</option>
+                        <option value="russian" data-price="150">Russian Coffee</option>
+                        <option value="american" data-price="200">American Coffee</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Enter Quantity</label>
+                    <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" onchange="updatePrice()" required>
+                </div>
+
+                <!-- Total Amount Display -->
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Total Amount</label>
+                    <div id="amount" class="form-control" readonly>100</div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-block">BUY NOW!</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    {% if payment %}
+    <div class="row justify-content-center mx-auto mt-4">
+        <div class="col-12 text-center">
+            <form action="/success" method="POST">
+                <button id="rzp-button1" class="btn btn-primary btn-lg">Pay with Razorpay</button>
+                <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                <script>
+                    var options = {
+                        "key": "rzp_test_kW8rMFTvHKTTSU", // Enter the Key ID generated from the Dashboard
+                        "amount": "{{payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        "currency": "INR",
+                        "name": "Coffee COP", // your business name
+                        "description": "Test Transaction",
+                        "image": "https://example.com/your_logo",
+                        "order_id": "{{payment.id}}", // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                        "callback_url": "http://127.0.0.1:8000/success/",
+                        "prefill": { 
+                            "name": "{{ payment.name }}", // customer's name from form data
+                            "email": "{{ payment.email }}",
+                            "contact": "{{ payment.contact }}" // Provide the customer's phone number for better conversion rates 
+                        },
+                        "notes": {
+                            "address": "Razorpay Corporate Office"
+                        },
+                        "theme": {
+                            "color": "#3399cc"
+                        }
+                    };
+                    var rzp1 = new Razorpay(options);
+                    document.getElementById('rzp-button1').onclick = function(e){
+                        rzp1.open();
+                        e.preventDefault();
+                    }
+                </script>
+                <input type="hidden" custom="Hidden Element" name="hidden">
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<script>
+    function updatePrice() {
+        var coffeeType = document.getElementById('coffeeType');
+        var quantity = document.getElementById('quantity').value;
+        var amountField = document.getElementById('amount');
+        var selectedOption = coffeeType.options[coffeeType.selectedIndex];
+        var pricePerCoffee = selectedOption.getAttribute('data-price');
+        var totalAmount = pricePerCoffee * quantity;
+        amountField.innerText = totalAmount; // Update the amount display
+    }
+
+    // Update price on page load
+    window.onload = function() {
+        updatePrice();
+    };
+</script>
+
+<style>
+    /* Base styles */
+    .container-fluid {
+        padding: 20px;
+    }
+    body{
+        font-family: 'Baloo Bhai', cursive;
+    }
+
+    /* Center the Razorpay Button */
+    .text-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .img-fluid {
+            height: 250px; /* Adjust image size for mobile */
+        }
+
+        .form-control {
+            font-size: 14px; /* Smaller text for mobile */
+        }
+
+        .btn {
+            font-size: 14px; /* Smaller buttons on mobile */
+            padding: 10px 20px;
+        }
+
+        #orderForm {
+            padding: 10px;
+        }
+    }
+
+    /* Tablet responsiveness */
+    @media (max-width: 1024px) and (min-width: 769px) {
+        .col-lg-6 {
+            max-width: 70%; /* Wider form for tablets */
+        }
+
+        .img-fluid {
+            height: 300px; /* Adjust image for tablet */
+        }
+
+        .btn {
+            font-size: 16px;
+            padding: 12px 25px;
+        }
+    }
+
+    /* Desktop responsiveness */
+    @media (min-width: 1025px) {
+        .col-lg-6 {
+            max-width: 50%;
+        }
+
+        .img-fluid {
+            height: 400px;
+        }
+
+        .btn {
+            font-size: 18px;
+            padding: 14px 30px;
+        }
+    }
+
+</style>
+
+{% endblock %}

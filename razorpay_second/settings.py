@@ -11,6 +11,20 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+# import os
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv('postgresql://djangobackendprojects_user:PZBf6geKtBgX7E17NIv7UvL7F6wpEET6@dpg-cts3o9a3esus73dmkch0-a/djangobackendprojects'))
+# }
+DATABASES = {
+    'default': dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a.singapore-postgres.render.com/vmcoffee_database')
+}
+
+DATABASE_URL={
+  'default':  dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database')
+}
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,12 +88,23 @@ WSGI_APPLICATION = 'razorpay_second.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'vmcoffee_database',
+#         'USER': 'vmcoffee_database_user',
+#         'PASSWORD': 'tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI',
+#         'HOST': 'mvcoffeeshop.onrender.com',  # e.g., 'localhost' or an IP address, or a URL
+#         'PORT': '5432',  # default PostgreSQL port is 5432
+#     }
+# }
+
 
 
 # Password validation

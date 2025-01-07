@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+
+DATABASE_URL="postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database"
+
 # import os
 
 # DATABASES = {
@@ -21,9 +24,9 @@ DATABASES = {
     'default': dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a.singapore-postgres.render.com/vmcoffee_database')
 }
 
-DATABASE_URL={
-  'default':  dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database')
-}
+# DATABASE_URL={
+#   'default':  dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database')
+# }
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

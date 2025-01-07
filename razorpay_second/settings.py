@@ -13,6 +13,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import dj_database_url
 
+import os
+# import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+}
+
+
 # DATABASE_URL="postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database"
 
 # import os

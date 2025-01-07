@@ -11,52 +11,48 @@
           rel="stylesheet" 
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
           crossorigin="anonymous">
-          <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai&display=swap" rel="stylesheet">
-          <a class="navbar-brand" href="/">
-        <link rel="icon" href="https://ik.imagekit.io/vinaymry/WhatsApp%20Image%202024-09-06%20at%205.05.37%20PM.jpeg?updatedAt=1725643499337" type="image/x-icon">
-                <!-- Logo Image -->
-                <img src="https://logodix.com/logo/1970309.jpg" alt="VM Coffee Logo">
-                <h2 class="text-center" >MV COFFEE SHOP</h2>
-                
-            </a>
-            <style>
-                
-                .navbar-brand img {
-                    width: 70px; /* Adjust the logo size */
-                    height: auto;
-                    margin-bottom:-1px;
-                    margin-left:50px;
-                }
-                body {
-                    background-image: url('https://images.pexels.com/photos/29944838/pexels-photo-29944838/free-photo-of-colorful-painted-wooden-wall-with-texture.jpeg?auto=compress&cs=tinysrgb&w=600'); /* Replace with your image URL */
-                    background-size: cover; /* Ensures the image covers the entire screen */
-                    background-position: center; /* Center the image */
-                    background-attachment: fixed; /* Keeps the background fixed during scroll */
-                    height: 100vh; /* Make the body take up the full height of the viewport */
-                    margin: 0; /* Remove default body margin */
-                    font-family: Arial, sans-serif; /* Optionally add your preferred font */
-                }
-                h2 {
-                    font-family: 'Baloo Bhai', cursive; /* Set the font to Baloo Bhai */
-                    font-weight: bold; /* Make the text bold */
-                    color: pink; /* Change the text color to pink */
-                    text-align: center; /* Center the text */
-                    margin-top: 20px;
-                }
-                h2.text-center {
-                    font-size: 40px;
-                }
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (Website Icon) -->
+    <link rel="icon" href="https://ik.imagekit.io/vinaymry/WhatsApp%20Image%202024-09-06%20at%205.05.37%20PM.jpeg?updatedAt=1725643499337" type="image/x-icon">
 
-                
-            </style>
+    <style>
+        .navbar-brand img {
+            width: 70px; /* Adjust the logo size */
+            height: auto;
+            margin-bottom: -1px;
+            margin-left: 50px;
+        }
+        
+        body {
+            background-image: url('https://images.pexels.com/photos/29944838/pexels-photo-29944838/free-photo-of-colorful-painted-wooden-wall-with-texture.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        h2 {
+            font-family: 'Baloo Bhai', cursive;
+            font-weight: bold;
+            color: pink;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 40px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Logo Section -->
+    <a class="navbar-brand" href="/">
+        <img src="https://logodix.com/logo/1970309.jpg" alt="MV Coffee Logo">
+        <h2>MV COFFEE SHOP</h2>
+    </a>
+
+    <!-- Content Block (Django Template Block) -->
     {% block content %}
-
     {% endblock %}
-
-
-    
-   
 </body>
 </html>

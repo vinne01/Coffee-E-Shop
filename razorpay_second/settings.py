@@ -29,7 +29,7 @@ DATABASES = {
 #     'default': dj_database_url.config(default=os.getenv('postgresql://djangobackendprojects_user:PZBf6geKtBgX7E17NIv7UvL7F6wpEET6@dpg-cts3o9a3esus73dmkch0-a/djangobackendprojects'))
 # }
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a.singapore-postgres.render.com/vmcoffee_database')
+    'default': dj_database_url.parse('postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database')
 }
 
 # DATABASE_URL={

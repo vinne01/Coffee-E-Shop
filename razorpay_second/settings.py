@@ -11,13 +11,23 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
-# import environ
-import os
 # import dj_database_url
+# # import environ
+# import os
+# # import dj_database_url
 
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+# }
+import os
+import dj_database_url
+
+# Get the DATABASE_URL environment variable
+DATABASE_URL = os.environ.get('DATABASE_URL')  # External URL set in Render dashboard
+
+# Parse the DATABASE_URL using dj-database-url
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.parse(DATABASE_URL)
 }
 
 
@@ -32,11 +42,11 @@ DATABASES = {
 #     'default': dj_database_url.parse('postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require')
 # }
 # import dj_database_url
-DATABASES = {
-    'default': dj_database_url.parse(
-        'postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require'
-    ),
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(
+#         'postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require'
+#     ),
+# }
 
 # DATABASE_URL={
 #   'default':  dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database')

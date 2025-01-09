@@ -11,17 +11,31 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
-import os
+# import dj_database_url
+# import os
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 # }
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require'
+#     )
+# }
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require'
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'madhu_database',  # The database name from the URL
+        'USER': 'madhu_database_user',  # The username from the URL
+        'PASSWORD': '1MLLbyQ3MiDiy5582l172POtQPEBQZ6v',  # The password from the URL
+        'HOST': 'dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com',  # The host from the URL
+        'PORT': '5432',  # The default port for PostgreSQL (usually 5432)
+        'OPTIONS': {
+            'sslmode': 'require',  # Ensuring that SSL is required (from the URL query parameter)
+        },
+    }
 }
+
 
 # import dj_database_url
 # # import environ

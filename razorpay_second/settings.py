@@ -14,8 +14,13 @@ from pathlib import Path
 import dj_database_url
 import os
 
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+# }
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default='postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require'
+    )
 }
 
 # import dj_database_url

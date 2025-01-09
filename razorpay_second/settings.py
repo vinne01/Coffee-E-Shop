@@ -19,21 +19,21 @@ from pathlib import Path
 # DATABASES = {
 #     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 # }
-import os
-import dj_database_url
+# import os
+# import dj_database_url
 
 # Get the DATABASE_URL environment variable
-DATABASE_URL = os.environ.get('DATABASE_URL')  # External URL set in Render dashboard
+# DATABASE_URL = os.environ.get('DATABASE_URL')  # External URL set in Render dashboard
 
 # Parse the DATABASE_URL using dj-database-url
-DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL)
-}
+# DATABASES = {
+#     'default': dj_database_url.parse("DATABASE_URL")
+# }
 
 
 # DATABASE_URL="postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database"
 
-# import os
+#  import os
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=os.getenv('postgresql://djangobackendprojects_user:PZBf6geKtBgX7E17NIv7UvL7F6wpEET6@dpg-cts3o9a3esus73dmkch0-a/djangobackendprojects'))
@@ -64,7 +64,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h*^tw79+7&og5ovk)sx^0+^m3vbbc)!rp86503le5!t1#$#7rm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -115,12 +115,12 @@ WSGI_APPLICATION = 'razorpay_second.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',

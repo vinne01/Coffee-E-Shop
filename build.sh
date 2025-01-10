@@ -18,6 +18,11 @@ set -o errexit
 # Install requirements
 pip install -r requirements.txt
 
+ staticPaths:
+      - /static: staticfiles
+      - /media: media
+
+
 # Collect static files
 python manage.py collectstatic --no-input
 

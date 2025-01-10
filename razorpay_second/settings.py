@@ -11,72 +11,37 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-# import dj_database_url
-# import os
 
+
+import os
+import dj_database_url
+# from urllib.parse import urlparse
+
+# # Fetch the DATABASE_URL from environment variable
+# DATABASE_URL = os.environ.get('DATABASE_URL')
+
+# # Parse the DATABASE_URL using urllib
+# url = urlparse(DATABASE_URL)
+
+# Configure Django's DATABASES setting using the parsed URL
 # DATABASES = {
-#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
-# }
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default='postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require'
-#     )
-# }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'madhu_database',  # The database name from the URL
-        'USER': 'madhu_database_user',  # The username from the URL
-        'PASSWORD': '1MLLbyQ3MiDiy5582l172POtQPEBQZ6v',  # The password from the URL
-        'HOST': 'dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com',  # The host from the URL
-        'PORT': '5432',  # The default port for PostgreSQL (usually 5432)
-        'OPTIONS': {
-            'sslmode': 'require',  # Ensuring that SSL is required (from the URL query parameter)
-        },
-    }
-}
-
-
-# import dj_database_url
-# # import environ
-# import os
-# # import dj_database_url
-
-# DATABASES = {
-#     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-# }
-# import os
-# import dj_database_url
-
-# Get the DATABASE_URL environment variable
-# DATABASE_URL = os.environ.get('DATABASE_URL')  # External URL set in Render dashboard
-
-# Parse the DATABASE_URL using dj-database-url
-# DATABASES = {
-#     'default': dj_database_url.parse("DATABASE_URL")
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': url.path[1:],  # Skipping the leading '/'
+#         'USER': url.username,
+#         'PASSWORD': url.password,
+#         'HOST': url.hostname,
+#         'PORT': url.port,
+#     }
 # }
 
 
-# DATABASE_URL="postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database"
 
-#  import os
 
-# DATABASES = {
-#     'default': dj_database_url.config(default=os.getenv('postgresql://djangobackendprojects_user:PZBf6geKtBgX7E17NIv7UvL7F6wpEET6@dpg-cts3o9a3esus73dmkch0-a/djangobackendprojects'))
-# }
-# DATABASES = {
-#     'default': dj_database_url.parse('postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require')
-# }
-# import dj_database_url
-# DATABASES = {
-#     'default': dj_database_url.parse(
-#         'postgresql://madhu_database_user:1MLLbyQ3MiDiy5582l172POtQPEBQZ6v@dpg-ctv7uulds78s738pgi8g-a.singapore-postgres.render.com/madhu_database?sslmode=require'
-#     ),
-# }
 
-# DATABASE_URL={
-#   'default':  dj_database_url.parse('postgresql://vmcoffee_database_user:tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI@dpg-ctunpfl2ng1s739gn7r0-a/vmcoffee_database')
-# }
+
+
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -141,22 +106,18 @@ WSGI_APPLICATION = 'razorpay_second.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'vmcoffee_database',
-#         'USER': 'vmcoffee_database_user',
-#         'PASSWORD': 'tlACvZfqCcOC8TQLJqOq7a5AkQgUvyDI',
-#         'HOST': 'mvcoffeeshop.onrender.com',  # e.g., 'localhost' or an IP address, or a URL
-#         'PORT': '5432',  # default PostgreSQL port is 5432
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
+DATABASES["default"]=dj_database_url.parse("postgresql://vinay_database_user:0LaKBoQhSeQHfNZRsbv9oGDxHkrXEaQW@dpg-cu0dab1u0jms73cvge0g-a.singapore-postgres.render.com/vinay_database")
+
+
+
 
 
 

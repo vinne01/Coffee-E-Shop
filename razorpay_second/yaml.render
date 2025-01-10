@@ -1,9 +1,1 @@
-services:
-  - type: web
-    name: src
-    env: python
-    buildCommand: "./build.sh"  # Replace with the path to your deploy script
-    startCommand: "gunicorn razorpay_second.wsgi:application"
-    staticPaths:
-      - /static: staticfiles
-      - /media: media
+

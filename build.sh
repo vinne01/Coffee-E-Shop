@@ -18,9 +18,9 @@ set -o errexit
 # Install requirements
 pip install -r requirements.txt
 
- staticPaths:
-      - /static: staticfiles
-      - /media: media
+ # staticPaths:
+ #      - /static: staticfiles
+ #      - /media: media
 
 
 # Collect static files
